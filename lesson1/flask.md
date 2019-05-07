@@ -159,6 +159,7 @@ def hello():
 
 -   Sessions are how Flask can keep track of data that pertains to a particular user. Let’s take a note-taking app, for example. Users should only be able to see their own notes.
 -   To use sessions, they must be imported and set up:
+-   Remember to `pip install Flask-Session` in order to install flask-session module to enable sessions.
 
 ``` 
 from flask import Flask, render_template, request, session # gives access to a variable called `session`
