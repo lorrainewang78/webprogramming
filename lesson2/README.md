@@ -52,7 +52,7 @@ Using SQL
 
 -   Creating a table:
 
-    ``` {.highlight}
+    ```sql
       CREATE TABLE flights (
           id SERIAL PRIMARY KEY,
           origin VARCHAR NOT NULL,
@@ -63,7 +63,7 @@ Using SQL
 
 -   Inserting data into a table:
 
-    ``` {.highlight}
+    ```sql
       INSERT INTO flights
           (origin, destination, duration)
           VALUES ('New York', 'London', 415);
@@ -78,7 +78,7 @@ Using SQL
     -   This command could also be entered all in one line.
 -   Reading data from a table:
 
-    ``` {.highlight}
+    ```sql
       SELECT * FROM flights;
       SELECT origin, destination FROM flights;
       SELECT * FROM flights WHERE id = 3;
@@ -128,7 +128,7 @@ Using SQL
         to be returned, similar to `WHERE`.
 -   Updating data in a table:
 
-    ``` {.highlight}
+    ```sql
       UPDATE flights
           SET duration = 430
           WHERE origin = 'New York'
@@ -139,7 +139,7 @@ Using SQL
         that match the `WHERE` query.
 -   Deleting data from a table:
 
-    ``` {.highlight}
+    ```sql
           DELETE FROM flights
           WHERE destination = 'Tokyo'
     ```
@@ -155,7 +155,7 @@ Using SQL
 -   Here’s an example to help demonstrate tables related by foreign
     keys:
 
-    ``` {.highlight}
+    ```sql
       CREATE TABLE passengers (
           id SERIAL PRIMARY KEY,
           name VARCHAR NOT NULL,
@@ -173,7 +173,7 @@ Using SQL
 -   Once these two tables are created, they can be queried
     simultaneously:
 
-    ``` {.highlight}
+    ```sql
       SELECT origin, destination, name FROM flights JOIN passengers ON passengers.flight_id = flights.id;
       SELECT origin, destination, name FROM flights JOIN passengers ON passengers.flight_id = flights.id WHERE name = 'Alice';
       SELECT origin, destination, name FROM flights LEFT JOIN passengers ON passengers.flight_id = flights.id;
@@ -204,7 +204,7 @@ Using SQL
     index every column of every table unnecessarily.
 -   Nested queries are yet another way to make more complex selections:
 
-    ``` {.highlight}
+    ```sql
       SELECT * FROM flights WHERE id IN
       (SELECT flight_id FROM passengers GROUP BY flight_id HAVING COUNT(*) > 1);
     ```
@@ -227,7 +227,7 @@ Using SQL
     user enters in those fields might be put into a SQL command to
     select their account from a table of accounts like so:
 
-    ``` {.highlight}
+    ```sql
       SELECT * FROM users
           WHERE (username = 'username')
           AND (password = 'password')
@@ -240,7 +240,7 @@ Using SQL
     out of context, when it’s processed into the
     `SELECT` query, this is the result:
 
-    ``` {.highlight}
+    ```sql
       SELECT * FROM users
           WHERE (username = 'hacker')
           AND (password = '1' OR '1' = '1');
@@ -267,7 +267,7 @@ Using SQL
     simultaneously. The SQL commands that get executed when money is
     withdrawn might look like this:
 
-    ``` {.highlight}
+    ```sql
       SELECT balance FROM bank WHERE user_id = 1;
       UPDATE bank SET balance = balance - 100 WHERE user_id = 1;
     ```
@@ -299,7 +299,7 @@ Python and SQL
     might go about printing all the flights in the
     `flights` table:
 
-    ``` {.highlight}
+    ```python
       import os
 
       from sqlalchemy import create_engine
@@ -322,7 +322,7 @@ Python and SQL
     example, the raw data is coming from a CSV (comma-separated values)
     file:
 
-    ``` {.highlight}
+    ```python
       import csv
 
       # same import and setup statements as above
@@ -349,7 +349,7 @@ Python and SQL
     `application.py` (along with the necessary
     import and set up statements) could look like this:
 
-    ``` {.highlight}
+    ```python
       @app.route("/")
       def index():
           flights = db.execute("SELECT * FROM flights").fetchall()
@@ -387,7 +387,7 @@ Python and SQL
         success statement, respectively.
 -   The corresponding `index.html`:
 
-    ``` {.highlight}
+    ```html
         
       <form action="{{ url_for('book') }}" method="post">
 
@@ -423,7 +423,7 @@ Python and SQL
     about that flight. Here’s some Python code that would take care of
     the routing for these new pages:
 
-    ``` {.highlight}
+    ```python
       @app.route("/flights")
       def flights():
           flights = db.execute("SELECT * FROM flights").fetchall()
@@ -454,7 +454,7 @@ Python and SQL
         including all of the passengers on that flight.
 -   `flights.html`:
 
-    ``` {.highlight}
+    ```html
         
       <ul>
           {% for flight in flights %}
@@ -477,7 +477,7 @@ Python and SQL
         for `/flights/<int:flight_id>` expects.
 -   `flight.html`:
 
-    ``` {.highlight}
+    ```html
         
       <h1>Flight Details</h1>
 
