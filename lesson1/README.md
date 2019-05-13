@@ -102,16 +102,16 @@ return render_template("index.html", headline=headline)
 
 -   Loops:
 
-```jinja2 
+```jinja
 {% for name in names %}
     <li>{{ name }}</li>
-{$ endfor %}
+{% endfor %}
 ```
 
 -   `names` should be something that can be looped over, like a Python list, for example.
 -   If there are multiple routes on the Flask server, then one route can link to another as so:
 
-```jinja2 
+```jinja 
 <a href="{{ url_for('more') }}">See more...</a>
 ```
 
