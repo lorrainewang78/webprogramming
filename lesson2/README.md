@@ -295,6 +295,11 @@ Python and SQL
     Python code running the web server must also be able to run SQL
     commands. SQLAlchemy is a Python library that allows for this
     functionality.
+-   Note: `os.getenv("DATABASE_URL")` requires that you set the environment variable called `DATABASE_URL` using 
+	* `export DATABASE_URL="replace-this-with-URI-from-heroku"` (Mac)
+	* `set DATABASE_URL="replace-this-with-URI-from-heroku"` (Windows cmd)
+	* `$env:DATABASE_URL="replace-this-with-URI-from-heroku"`(Powershell)   	
+	![postgresql uri](https://i.imgur.com/BpV7fXf.png=250x)
 -   Starting with simple Python outside of a web context, here’s how one
     might go about printing all the flights in the
     `flights` table:
