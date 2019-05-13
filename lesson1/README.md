@@ -12,7 +12,7 @@ Flask
 
 Flask code is generally stored inside `application.py`, and might look like so:
 
-```
+```python
     from flask import Flask # Import the class `Flask` from the `flask` module, written by someone else.
     app = Flask(__name__) # Instantiate a new web application called `app`, with `__name__` representing the current file
 
@@ -42,7 +42,7 @@ Enabling Debug Mode
 
 ### Fancier Flask and Jinja2
 
-``` 
+```python 
     @app.route("/<string:name>")
     def hello(name):
         return f"Hello, {name}!"
@@ -51,20 +51,20 @@ Enabling Debug Mode
 -   When any string is entered as a route, that will be stored as `name`, which is can then be used inside the decorated function.
 -   Since Python code is rendering the website, anything Python is capable of can be used. For example, `name` can be capitalized before it’s displayed:
 
-``` 
+```python 
 name = name.capitalize()
 ```
 
 -   HTML can also be used inside the return value:
 
-``` 
+```python 
 return f"<h1>Hello, {name}!</h1>".
 ```
 
 -   Inline HTML isn’t that useful, though. Separate HTML files can be
     used like so:
 
-``` 
+```python 
 from flask import Flask
 
 app = Flask(__name__)
@@ -79,20 +79,20 @@ def index():
 
 -   In `application.py`:
 
-``` 
+```python 
 headline = "Hello, world!"
 return render_template("index.html", headline=headline)
 ```
 
 -   In `index.html`:
 
-``` 
+```html 
 <h1>{{ headline }}</h1>
 ```
 
 -   Jinja2 also allows for conditional statements:
 
-``` 
+```jinja 
 {% if new_year %}
     <h1>Yes! Happy New Year!</h1>
 {% else %}
@@ -102,7 +102,7 @@ return render_template("index.html", headline=headline)
 
 -   Loops:
 
-``` 
+```jinja2 
 {% for name in names %}
     <li>{{ name }}</li>
 {$ endfor %}
@@ -111,7 +111,7 @@ return render_template("index.html", headline=headline)
 -   `names` should be something that can be looped over, like a Python list, for example.
 -   If there are multiple routes on the Flask server, then one route can link to another as so:
 
-``` 
+```jinja2 
 <a href="{{ url_for('more') }}">See more...</a>
 ```
 
@@ -127,7 +127,7 @@ return render_template("index.html", headline=headline)
 -   With Flask and Jinja2, the results from HTML forms can now be actually stored and used.
 -   An HTML form might look like this:
 
-    ``` 
+    ```html 
       <form action="" method="post">
           <input type="text" name="name" placeholder="Enter Your Name">
           <button>Submit</button>
@@ -139,7 +139,7 @@ return render_template("index.html", headline=headline)
     -   The `name` attribute of the input, while not new, is now relevant because it can be referenced when the form is submitted.
 -   The Python code to process this form might look like this:
 
-``` 
+```python 
 from flask import Flask, render_template, request
 
 # some lines omitted here
@@ -161,7 +161,7 @@ def hello():
 -   To use sessions, they must be imported and set up:
 -   Remember to `pip install Flask-Session` in order to install flask-session module to enable sessions.
 
-``` 
+```python 
 from flask import Flask, render_template, request, session # gives access to a variable called `session`
                                                            # which can be used to keep vaules that are specific to a particular user
 from flask_session import Session # an additional extension to sessions which allows them
@@ -174,7 +174,7 @@ Session(app)
 
 -   Then, assuming there is some HTML form that can submit a note, the note can be stored in a place specific to the user using their session:
 
-``` 
+```python 
 @app.route("/", methods=["GET", "POST"])
 def index():
     if session.get("notes") is None:
