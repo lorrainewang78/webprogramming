@@ -295,6 +295,8 @@ Python and SQL
     Python code running the web server must also be able to run SQL
     commands. SQLAlchemy is a Python library that allows for this
     functionality.
+-   For these projects to run properly, you must install:
+	* pip install SQLAlchemy
 -   Note: `os.getenv("DATABASE_URL")` requires that you set the environment variable called `DATABASE_URL` using 
 	* `export DATABASE_URL="replace-this-with-URI-from-heroku"` (Mac)
 	* `set DATABASE_URL="replace-this-with-URI-from-heroku"` (Windows cmd)
