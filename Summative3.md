@@ -69,12 +69,11 @@ Heroku credentials list.
 
 To try running your first Flask application:
 
-1.  Download the `project1` distribution directory
-    from
-    [https://cdn.cs50.net/web/2018/spring/projects/1/project1.zip](https://cdn.cs50.net/web/2018/spring/projects/1/project1.zip)
+1.  Download the `summative3.zip` from
+    [https://github.com/lorrainewang78/webprogramming/blob/master/summative3.zip](https://github.com/lorrainewang78/webprogramming/blob/master/summative3.zip)
     and unzip it.
 2.  In a terminal window, navigate into your
-    `project1` directory.
+    `summative3` directory.
 3.  Run `pip3 install -r requirements.txt` in your
     terminal window to make sure that all of the necessary Python
     packages (Flask and SQLAlchemy, for instance) are installed.
@@ -94,7 +93,7 @@ To try running your first Flask application:
 6.  Run `flask run` to start up your Flask
     application.
 7.  If you navigate to the URL provided by `flask`,
-    you should see the text `"Project 1: TODO"`!
+    you should see the text `"Summative 3 TODO"`!
 
 ### OMDb API
 
