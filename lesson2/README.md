@@ -11,6 +11,7 @@ Databases
     with these relational databases. In this class, PostgreSQL will be
     used, but there are many other versions with slightly different
     features.
+-   Download [HeidiSQL](https://www.heidisql.com/downloads/releases/HeidiSQL_10.1_64_Portable.zip) (Portable) for ease of querying into your database. 
 
 Using SQL
 ---------
