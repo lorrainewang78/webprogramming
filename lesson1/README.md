@@ -97,7 +97,7 @@ return render_template("index.html", headline=headline)
 {% if new_year %}
     <h1>Yes! Happy New Year!</h1>
 {% else %}
-    <h1>No.</h1>
+    <h1>Just a regular day.</h1>
 {% endif %}
 ```
 
