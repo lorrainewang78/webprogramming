@@ -48,7 +48,8 @@ Enabling Debug Mode
         return f"Hello, {name}!"
 ```
 
--   When any string is entered as a route, that will be stored as `name`, which is can then be used inside the decorated function.
+-   When any string is entered as a route, that will be stored as variable `name`, which is can then be used inside the decorated function.
+-   You can apply variable rules to interprete URL sections. For more details, refer to https://flask.palletsprojects.com/en/1.1.x/quickstart/#variable-rules
 -   Since Python code is rendering the website, anything Python is capable of can be used. For example, `name` can be capitalized before it’s displayed:
 
 ```python 
